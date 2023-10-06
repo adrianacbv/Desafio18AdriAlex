@@ -1,12 +1,16 @@
-import './App.css'
-import Registro from './components/Registro.jsx'
+//import Formulario from './Formulario.jsx';
+import SocialButton from './SocialButton.jsx';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-function App() {
-  return (
-    <>
-      <Registro/>
-    </>
+const Registro = () => { return (
+  <>
+    <SocialButton icon={faFacebook} />
+    <SocialButton icon={faGithub} />
+    <SocialButton icon={faLinkedin} />
+  </>
   )
 }
 
-export default App;
+export default Registro;
