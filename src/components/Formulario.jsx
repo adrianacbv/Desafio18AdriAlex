@@ -10,7 +10,7 @@ const Formulario = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   /* se añade validación de contraseña. Alexandra */
-  const [password, setPasswod] = useState("");
+  const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
 
   const validarInput = (e) => {
@@ -49,7 +49,7 @@ const Formulario = () => {
         <Form.Control type="password" placeholder="Confirma tu contraseña" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
       </Form.Group>
       
-      <Button variant="primary" type="submit" >
+      <Button variant="primary" type="submit" className='button'>
         Registrarse
       </Button>
     </Form>
