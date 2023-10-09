@@ -9,6 +9,9 @@ const Formulario = () => {
   const [alertText, setAlertText] = useState("Completa todos los campos!");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  /* se añade validación de contraseña. Alexandra */
+  const [password, setPasswod] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
 
   const validarInput = (e) => {
     e.preventDefault();
@@ -18,6 +21,10 @@ const Formulario = () => {
       setAlertType("danger");
     } else if(EmailValidator.validate(email) == false) {
       setAlertText("Debe ingresar un correo válido");
+      setAlertType("danger");
+      /* se añade validación de contraseña */
+    } else if(password != passwordConfirmation) {
+      setAlertText("Las contraseñas deben ser iguales");
       setAlertType("danger");
     } else {
       setAlertText("Registro realizado con éxito");
@@ -34,6 +41,14 @@ const Formulario = () => {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Control type="text" placeholder="tuemail@ejemplo.com" value={email} onChange={(e) => setEmail(e.target.value)} />
       </Form.Group>
+      
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Control type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
+        <Form.Control type="password" placeholder="Confirma tu contraseña" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
+      </Form.Group>
+      
       <Button variant="primary" type="submit" >
         Registrarse
       </Button>
@@ -44,3 +59,5 @@ const Formulario = () => {
 }
 
 export default Formulario;
+
+/* Se agregan las validaciones de contraseña en los inputs de contraseña y validación de la misma en un segundo input */
